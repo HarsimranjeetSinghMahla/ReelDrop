@@ -72,10 +72,19 @@ app.get('/api/download', (req, res) => {
 
   const args = [...baseArgs(), '-o', tmpTmpl];
 
-  if (format === 'mp3') {
-    args.push('-x', '--audio-format', 'mp3', '--audio-quality', '0');
+if (format === 'mp3') {
+  args.push(
+    '-x',
+    '--audio-format',
+    'mp3',
+    '--audio-quality',
+    '0'
+  );
 } else {
-    args.push('-f', 'best');
+  args.push(
+    '-f',
+    'best'
+  );
 }
 
 args.push(safeUrl);
