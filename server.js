@@ -72,18 +72,13 @@ app.get('/api/download', (req, res) => {
 
   const args = [...baseArgs(), '-o', tmpTmpl];
 
-  if (format === 'mp3') {
+  iif (format === 'mp3') {
     args.push('-x', '--audio-format', 'mp3', '--audio-quality', '0');
-  } else {
-    const h = quality && quality !== 'max' ? quality : null;
-    if (h) {
-      args.push('-f', `bestvideo[height<=${h}][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=${h}]+bestaudio/best[height<=${h}]/best`);
-    } else {
-      args.push('-f', 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio/best');
-    }
-    args.push('--merge-output-format', 'mp4');
-  }
-  args.push(safeUrl);
+} else {
+    args.push('-f', 'best');
+}
+
+args.push(safeUrl);
 
   console.log('[yt-dlp]', args.filter(a => !a.startsWith('Mozilla')).join(' '));
   const dl = spawn('yt-dlp', args);
