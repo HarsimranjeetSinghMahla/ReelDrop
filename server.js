@@ -17,17 +17,20 @@ app.get('/api/health', (_, res) => res.json({ ok: true }));
 // Base yt-dlp args — no cookies, mobile UA so Instagram serves public content
 function baseArgs() {
   return [
-    '--no-playlist',
-    '--no-warnings',
-    '--no-check-certificates',
-    '--extractor-retries', '3',
-    '--retries', '3',
-    '--socket-timeout', '30',
-    // Mobile UA — Instagram serves public reels without login to mobile clients
-    '--add-header', 'User-Agent:Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1',
-    '--add-header', 'Accept-Language:en-US,en;q=0.9',
-    '--add-header', 'Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-  ];
+  //   '--no-playlist',
+  //   '--no-warnings',
+  //   '--no-check-certificates',
+  //   '--extractor-retries', '3',
+  //   '--retries', '3',
+  //   '--socket-timeout', '30',
+  //   // Mobile UA — Instagram serves public reels without login to mobile clients
+  //   '--add-header', 'User-Agent:Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1',
+  //   '--add-header', 'Accept-Language:en-US,en;q=0.9',
+  //   '--add-header', 'Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  // ];
+   '--no-playlists',
+   '--no-warnings'
+    ];
 }
 
 // GET INFO
