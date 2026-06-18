@@ -87,11 +87,17 @@ if (format === 'mp3') {
   );
 }
 
-args.push(safeUrl);
+
 
 args.push(safeUrl);
 
   console.log('[yt-dlp]', args.filter(a => !a.startsWith('Mozilla')).join(' '));
+  console.log('\n===== DOWNLOAD DEBUG =====');
+console.log('URL:', safeUrl);
+console.log('FORMAT:', format);
+console.log('QUALITY:', quality);
+console.log('ARGS:', JSON.stringify(args, null, 2));
+console.log('==========================\n');
   const dl = spawn('yt-dlp', args);
   let errOut = '';
   dl.stderr.on('data', d => { errOut += d.toString(); });
