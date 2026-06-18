@@ -36,7 +36,11 @@ app.post('/api/info', (req, res) => {
   if (!url) return res.status(400).json({ error: 'URL required' });
   const safeUrl = url.replace(/["`$\\]/g, '');
 
-  const args = [...baseArgs(), '--dump-json', safeUrl];
+  const args = [
+  '--dump-json',
+  '--no-playlist',
+  safeUrl
+];
   const proc = spawn('yt-dlp', args);
   let stdout = '', stderr = '';
   proc.stdout.on('data', d => { stdout += d.toString(); });
