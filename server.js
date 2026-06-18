@@ -126,20 +126,21 @@ function formatDur(s) {
   return `${m}:${String(sec).padStart(2,'0')}`;
 }
 function cleanError(msg) {
-  if (msg.includes('Private'))                    return 'This video is private.';
-  if (msg.includes('not available'))              return 'Video not available in your region.';
-  if (msg.includes('Login required') ||
-      msg.includes('login required') ||
-      msg.includes('checkpoint'))                 return 'This reel requires an Instagram login. Only public reels work without an account.';
-  if (msg.includes('Unsupported URL'))            return 'URL not supported. Paste a direct reel link (instagram.com/reel/...).';
-  if (msg.includes('Unable to extract') ||
-      msg.includes('No video formats'))           return 'Could not extract video. The reel may be deleted or private.';
-  if (msg.includes('HTTP Error 401') ||
-      msg.includes('HTTP Error 403'))             return 'Instagram blocked the request. Try again in a few minutes.';
-  if (msg.includes('ffmpeg') ||
-      msg.includes('ffprobe'))                    return 'ffmpeg not found. Install it with: brew install ffmpeg';
-  if (msg.includes('404'))                        return 'Video not found (404). Check the URL.';
-  return 'Could not process this URL. Make sure it\'s a public reel and the link is correct.';
+  // if (msg.includes('Private'))                    return 'This video is private.';
+  // if (msg.includes('not available'))              return 'Video not available in your region.';
+  // if (msg.includes('Login required') ||
+  //     msg.includes('login required') ||
+  //     msg.includes('checkpoint'))                 return 'This reel requires an Instagram login. Only public reels work without an account.';
+  // if (msg.includes('Unsupported URL'))            return 'URL not supported. Paste a direct reel link (instagram.com/reel/...).';
+  // if (msg.includes('Unable to extract') ||
+  //     msg.includes('No video formats'))           return 'Could not extract video. The reel may be deleted or private.';
+  // if (msg.includes('HTTP Error 401') ||
+  //     msg.includes('HTTP Error 403'))             return 'Instagram blocked the request. Try again in a few minutes.';
+  // if (msg.includes('ffmpeg') ||
+  //     msg.includes('ffprobe'))                    return 'ffmpeg not found. Install it with: brew install ffmpeg';
+  // if (msg.includes('404'))                        return 'Video not found (404). Check the URL.';
+  // return 'Could not process this URL. Make sure it\'s a public reel and the link is correct.';
+  return msg;
 }
 
 app.listen(PORT, () => console.log(`\n🎬 ReelDrop → http://localhost:${PORT}\n`));
